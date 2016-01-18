@@ -50,34 +50,18 @@ function prefDisp(id) {
   new Ajax.Request(url,
     {
       method: 'get',
+      datatype: 'json',
       onSuccess: getreported,
+      onComplete: getdata,
       onFailure: showErrMsg,
       parameters: paramList
   });
 
+  function getdata(request){
+  $('comment').innerHTML = request.responseText;
+  }
+
   function getreported(data){
-    var xmlhttp = new XMLHttpRequest();
-     xmlhttp.onreadystatechange = function () {
-       if (xmlhttp.readyState == 4) {
-         if (xmlhttp.status == 200) {
-           var data = JSON.parse(xmlhttp.responseText);
- 
-           var elem = document.getElementById("comment");
-           elem.innerText = data.comment;
-           var elem = document.getElementById("created_at");
-           elem.innerText = data.created_at;
-           var elem = document.getElementById("date_reported");
-           elem.innerText = data.date_reported;
-           var elem = document.getElementById("id");
-           elem.innerText = data.id;
-           var elem = document.getElementById("latitude");
-           elem.innerText = data.latitude;
-         } else {
-         }
-       }
-     }
-     xmlhttp.open("GET", id + ".json");
-     xmlhttp.send();
     state.innerHTML = "データを取得しました。<br />\n";
 
   }
