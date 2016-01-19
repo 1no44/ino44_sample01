@@ -1,9 +1,9 @@
 {
-  "comment":"1no44 comment",
-  "created_at":"2016-01-09T16:04:28+09:00",
-  "date_reported":"2016-01-10T00:33:00+09:00",
-  "id":4,
-  "latitude":36.888
-  "longitude":136.4444
-  "updated_at":"2016-01-09T16:04:28+09:00"
+  "comment":"1no44 comment"
+  ,"created_at":"2016-01-09T16:04:28+09:00"
+  ,"date_reported":"2016-01-10T00:33:00+09:00"
+  ,"id":4
+  ,"latitude":36.888
+  ,"longitude":136.4444
+  ,"updated_at":"2016-01-09T16:04:28+09:00"
 }

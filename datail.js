@@ -43,7 +43,7 @@ function GetQueryString() {
 
 function prefDisp(id) {
   state.innerHTML = "処理中です・・・<br />\n";
-//  var url = "http://ino44-api.herokuapp/reports/";
+//  var url = "http://ino44-api.herokuapp/reports/" + id + ".json";
   var url = id + ".json";
   var paramList = "";
 
@@ -58,12 +58,20 @@ function prefDisp(id) {
   });
 
   function getdata(request){
-  $('comment').innerHTML = request.responseText;
+//  $('comment').innerHTML = request.responseText;
+  var str = request.responseText;
+  var obj = JSON.parse(str);
+  $('comment').innerHTML = obj.comment;
+  $('created_at').innerHTML = obj.created_at;
+  $('date_reported').innerHTML = obj.date_reported;
+  $('id').innerHTML = obj.id;
+  $('latitude').innerHTML = obj.latitude;
+  $('longitude').innerHTML = obj.longitude;
+  $('updated_at').innerHTML = obj.updated_at;
   }
 
   function getreported(data){
     state.innerHTML = "データを取得しました。<br />\n";
-
   }
 
   function showErrMsg(){
